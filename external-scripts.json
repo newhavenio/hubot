@@ -10,5 +10,6 @@
   "hubot-redis-brain",
   "hubot-rules",
   "hubot-shipit",
-  "hubot-table-flip"
+  "hubot-table-flip",
+  "hubot-plusplus"
 ]
