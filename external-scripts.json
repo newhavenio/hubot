@@ -11,5 +11,6 @@
   "hubot-rules",
   "hubot-rss-reader",
   "hubot-shipit",
-  "hubot-table-flip"
+  "hubot-table-flip",
+  "hubot-plusplus"
 ]
