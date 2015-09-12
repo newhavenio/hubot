@@ -9,7 +9,6 @@
   "hubot-maps",
   "hubot-redis-brain",
   "hubot-rules",
-  "hubot-rss-reader",
   "hubot-shipit",
   "hubot-table-flip",
   "hubot-plusplus"
