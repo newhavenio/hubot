@@ -21,6 +21,10 @@ function maybe(p, fn) {
 }
 
 module.exports = function(robot) {
+  robot.hear(/!(fear|afraid)\b/i, function(msg) {
+    msg.send(littany(' '));
+  });
+
   robot.hear(/\b(fear|afraid)\b/i, function(msg) {
     maybe(0.05, function() {
       msg.send(littany(' '));
