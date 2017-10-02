@@ -1,4 +1,4 @@
-// Any time someone mentions 'fear,' or 'afraid,' Jane helpfully
+// Any time (sometimes) someone mentions 'fear,' or 'afraid,' Jane helpfully
 // reminds them: You must not fear.
 
 function littany() {
@@ -14,8 +14,16 @@ function littany() {
   ].join(' ');
 }
 
+function maybe(p, fn) {
+  if (Math.random() < p) {
+    fn();
+  }
+}
+
 module.exports = function(robot) {
   robot.hear(/\b(fear|afraid)\b/i, function(msg) {
-    msg.send(littany(' '));
+    maybe(0.05, function() {
+      msg.send(littany(' '));
+    });
   });
 };
