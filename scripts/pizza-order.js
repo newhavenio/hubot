@@ -58,7 +58,7 @@ module.exports = function(robot) {
     return msg + ending;
   }
 
-  robot.hear(/test/, function(res) {
+  robot.respond(/pizza test/, function(res) {
     res.reply([
         line('this', ['is', 'a', ['nested'], 'line']),
         line('repeated', repeatChar('x', 3)),
