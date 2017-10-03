@@ -47,7 +47,7 @@ module.exports = function(robot) {
 
   function dollars(number) {
     var cents = Math.round((number % 1) * 100);
-    return '$' + formatInteger(Math.round(number)) + '.' + rpad(cents, 2, '0');
+    return '$' + formatInteger(Math.floor(number)) + '.' + rpad(cents, 2, '0');
   }
 
   function line() {
@@ -68,6 +68,8 @@ module.exports = function(robot) {
         line(' left-pad:', lpad('hello', 10, 'y')),
         line('a big number:', formatInteger(1234567.29)),
         line('a big dollar amount:', dollars(1234567.29)),
+        line('rounding correctly:', formatInteger(14.65)),
+        line('dollars correctly:', dollars(14.65)),
     ].join(''));
   });
 
