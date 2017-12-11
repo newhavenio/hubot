@@ -22,7 +22,6 @@ wats = [
   ]
 
 ###
-/* we gotta tone this down */
 module.exports = (robot) ->
   robot.hear /\b(wat|wtf)\b/i, (msg) ->
     msg.send msg.random wats
