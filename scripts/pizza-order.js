@@ -1,3 +1,18 @@
+// Description:
+//   How much pizza should we order?
+//
+// Dependencies:
+//   None
+//
+// Configuration:
+//   None
+//
+// Commands:
+//   pizza for (number): it'll tell you how many pizzas to order, estimate the cost, and explain its assumptions.
+//   pizza test: an embedded test suite, because I'm not good at JavaScript, and I hate debugging.
+//
+// Author:
+//   danbernier
 
 module.exports = function(robot) {
   function flatten(a, r) {
