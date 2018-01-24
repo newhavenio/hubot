@@ -1,18 +1,20 @@
-// Description:
-//   Any time (sometimes) someone mentions 'fear,' or 'afraid,' the bot helpfully
-//   reminds them: You must not fear.
-//
-// Dependencies:
-//   None
-//
-// Configuration:
-//   None
-//
-// Commands:
-//   Just say 'fear'. Maybe you'll get some help. Maybe not.
-//
-// Author:
-//   danbernier
+/**
+ * Description:
+ *   Any time (sometimes) someone mentions 'fear,' or 'afraid,' the bot helpfully
+ *   reminds them: You must not fear.
+ *
+ * Dependencies:
+ *   None
+ *
+ * Configuration:
+ *   None
+ *
+ * Commands:
+ *   Just say 'fear'. Maybe you'll get some help. Maybe not.
+ *
+ * Author:
+ *   danbernier
+ */
 
 function littany() {
   return [
