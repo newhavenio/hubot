@@ -24,6 +24,6 @@
   },
   "engines": {
     "node": "0.10.x",
-    "node": "5.x.x"
+    "npm": "5.x.x"
   }
 }
