@@ -23,7 +23,7 @@
     "hubot-table-flip": "^0.2.0"
   },
   "engines": {
-    "node": "0.10.x",
+    "node": "9.x.x",
     "npm": "5.x.x"
   }
 }
