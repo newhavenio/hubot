@@ -8,7 +8,7 @@
 #   None
 #
 # Commands:
-#   magic - Shia Lebough
+#   magic - Shia Lebeouf helps set the mood with a bit of magic.
 #
 # Author:
 #   @bsutt123
