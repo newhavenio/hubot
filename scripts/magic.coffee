@@ -15,4 +15,5 @@
 
 module.exports = (robot) ->
   robot.hear /\bmagic\b/i, (message) ->
-    message.send "https://giphy.com/gifs/shia-labeouf-12NUbkX6p4xOO4"
+    if Math.random() > .66
+      message.send "https://giphy.com/gifs/shia-labeouf-12NUbkX6p4xOO4"
