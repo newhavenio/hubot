@@ -1,4 +1,5 @@
 [
+  "hubot-markov",
   "hubot-darts",
   "hubot-diagnostics",
   "hubot-help",
