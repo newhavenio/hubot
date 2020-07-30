@@ -108,6 +108,10 @@ to including all scripts.**
 
 [npmjs]: https://www.npmjs.com
 
+### testing
+
+In order to get a script PR merged, please add tests. You can find examples in the `test` directory
+
 ### hubot-scripts
 
 Before hubot plugin packages were adopted, most plugins were held in the
@@ -212,3 +216,10 @@ Add the subdomain hubot should connect to. If you web URL looks like
 
 You may want to get comfortable with `heroku logs` and `heroku restart` if
 you're having issues.
+
+## Local Development
+
+please ensure you have the versions of node and npm specified in the engines directive of `package.lock`
+
+1. run `npm install`
+2. run `npm test`
