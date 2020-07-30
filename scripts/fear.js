@@ -29,8 +29,14 @@ function littany() {
   ].join(' ');
 }
 
+function getRandomIntegerBelow(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 function maybe(p, fn) {
-  if (Math.random() < p) {
+  let max = parseInt(process.env.FEAR_MAX_PERCENTAGE, 10) || 100
+  let randomValue = getRandomIntegerBelow(max)
+  if (randomValue < p) {
     fn();
   }
 }
@@ -41,7 +47,7 @@ module.exports = function(robot) {
   });
 
   robot.hear(/\b(fear|afraid)\b/i, function(msg) {
-    maybe(0.02, function() {
+    maybe(20, function() {
       msg.send(littany(' '));
     });
   });
