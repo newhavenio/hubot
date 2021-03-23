@@ -34,6 +34,22 @@ describe 'jobs-suggestion', ->
             ['alice', 'check out my job post here: not a url'],
           ]
 
+    context 'when called directly', ->
+      it 'responds', ->
+        @room.user.say('alice', '@hubot !job').then =>
+          expect(@room.messages[0..1]).to.eql [
+            ['alice', '@hubot !job'],
+            ['hubot', response]
+          ]
+
+    context 'when called directly with plural', ->
+      it 'responds', ->
+        @room.user.say('alice', '@hubot !jobs').then =>
+          expect(@room.messages[0..1]).to.eql [
+            ['alice', '@hubot !jobs'],
+            ['hubot', response]
+          ]
+
   context 'somewhere else', ->
     beforeEach ->
       process.env.JOBS_SUGGESTION_MAX_PERCENTAGE = "100"
@@ -49,4 +65,20 @@ describe 'jobs-suggestion', ->
         @room.user.say('alice', 'check out my job post here: not a url').then =>
           expect(@room.messages[0..1]).to.eql [
             ['alice', 'check out my job post here: not a url'],
+          ]
+
+    context 'when called directly', ->
+      it 'responds', ->
+        @room.user.say('alice', '@hubot !job').then =>
+          expect(@room.messages[0..1]).to.eql [
+            ['alice', '@hubot !job'],
+            ['hubot', response]
+          ]
+
+    context 'when called directly with plural', ->
+      it 'responds', ->
+        @room.user.say('alice', '@hubot !jobs').then =>
+          expect(@room.messages[0..1]).to.eql [
+            ['alice', '@hubot !jobs'],
+            ['hubot', response]
           ]

@@ -39,4 +39,8 @@ module.exports = function(robot) {
       });
     }
   });
+
+  robot.respond(/!job(s)?\b/, function(msg) {
+    msg.send(response());
+  });
 }
