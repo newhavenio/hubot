@@ -10,6 +10,7 @@ response = "Hi! please post jobs via a pull request to https://github.com/newhav
 describe 'jobs-suggestion', ->
   context 'in #jobs', ->
     beforeEach ->
+      process.env.JOBS_BOARD_SUGGESTION = response
       process.env.JOBS_SUGGESTION_MAX_PERCENTAGE = "100"
       process.env.JOBS_BOARD_ROOM = "jobs"
       process.env.IOBOT_USER_ID = "iobot"

@@ -27,7 +27,7 @@ function maybe(p, fn) {
 }
 
 function response() {
-  return 'Hi! please post jobs via a pull request to https://github.com/newhavenio/newhavenio';
+  return process.env.JOBS_BOARD_SUGGESTION;
 }
 
 module.exports = function(robot) {
