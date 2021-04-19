@@ -10,13 +10,16 @@ response = "Hi! please post jobs via a pull request to https://github.com/newhav
 describe 'jobs-suggestion', ->
   context 'in #jobs', ->
     beforeEach ->
+      process.env.JOBS_BOARD_SUGGESTION = response
       process.env.JOBS_SUGGESTION_MAX_PERCENTAGE = "100"
       process.env.JOBS_BOARD_ROOM = "jobs"
+      process.env.IOBOT_USER_ID = "iobot"
       @room = helper.createRoom({name: 'jobs'})
 
     afterEach ->
       delete process.env.JOBS_SUGGESTION_MAX_PERCENTAGE
       delete process.env.JOBS_BOARD_ROOM
+      delete process.env.IOBOT_USER_ID
       @room.destroy()
 
     context 'with a url', ->
@@ -26,6 +29,13 @@ describe 'jobs-suggestion', ->
             ['alice', 'check out my job post here: https://www.example.com'],
             ['hubot', response]
           ]
+
+      context 'by the robot itself', ->
+        it 'does not respond', ->
+          @room.user.say('iobot', 'check out my job post here: https://www.example.com').then =>
+            expect(@room.messages[0..1]).to.eql [
+              ['iobot', 'check out my job post here: https://www.example.com']
+            ]
 
     context 'without a url', ->
       it 'does not respond', ->

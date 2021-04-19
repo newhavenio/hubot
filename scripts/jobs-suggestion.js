@@ -27,13 +27,13 @@ function maybe(p, fn) {
 }
 
 function response() {
-  return 'Hi! please post jobs via a pull request to https://github.com/newhavenio/newhavenio';
+  return process.env.JOBS_BOARD_SUGGESTION;
 }
 
 module.exports = function(robot) {
   robot.hear(/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi, function(msg) {
     let max = parseInt(process.env.JOBS_SUGGESTION_MAX_PERCENTAGE, 10) || 100
-    if(msg.message.user.room === process.env.JOBS_BOARD_ROOM) {
+    if((msg.message.user.room === process.env.JOBS_BOARD_ROOM) && (msg.message.user.id != process.env.IOBOT_USER_ID)) {
       maybe(max, function() {
         msg.send(response());
       });
