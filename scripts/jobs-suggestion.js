@@ -32,14 +32,9 @@ function response() {
 
 module.exports = function(robot) {
   robot.hear(/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi, function(msg) {
-    console.log("room=" + msg.message.user.room)
-    console.log("jobs_room=" + process.env.JOBS_BOARD_ROOM)
     let max = parseInt(process.env.JOBS_SUGGESTION_MAX_PERCENTAGE, 10) || 100
-    console.log("max=" + max)
     if((msg.message.user.room === process.env.JOBS_BOARD_ROOM) && (msg.message.user.id != process.env.IOBOT_USER_ID)) {
-      console.log("room_match=true")
       maybe(max, function() {
-        console.log("maybe=true")
         msg.send(response());
       });
     }
