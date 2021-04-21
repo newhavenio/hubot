@@ -27,6 +27,19 @@ describe 'jobs-suggestion', ->
             ['hubot', response]
           ]
 
+      context 'with the feature flag set to 0', ->
+        beforeEach ->
+          process.env.JOBS_SUGGESTION_MAX_PERCENTAGE = "0"
+
+        afterEach ->
+          delete process.env.JOBS_SUGGESTION_MAX_PERCENTAGE
+
+        it 'does not respond', ->
+          @room.user.say('alice', 'check out my job post here: https://www.example.com').then =>
+            expect(@room.messages[0..1]).to.eql [
+              ['alice', 'check out my job post here: https://www.example.com'],
+            ]
+
     context 'without a url', ->
       it 'does not respond', ->
         @room.user.say('alice', 'check out my job post here: not a url').then =>

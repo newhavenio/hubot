@@ -16,9 +16,9 @@
 getRandomIntegerBelow = (max) ->
   Math.floor(Math.random() * Math.floor(max))
 
-maybe = (p, fn) ->
+maybe = (fn) ->
   max = parseInt(process.env.GATSBY_MAX_PERCENTAGE, 10) || 0
-  randomValue = getRandomIntegerBelow(p)
+  randomValue = getRandomIntegerBelow(100)
   console.log('env_var=' + process.env.GATSBY_MAX_PERCENTAGE)
   console.log('randomValue=' + randomValue)
   console.log('max=' + max)
@@ -27,5 +27,5 @@ maybe = (p, fn) ->
 
 module.exports = (robot) ->
   robot.hear /\bgatsby\b/i, (message) ->
-    maybe 100, () ->
+    maybe () ->
       message.send "https://media.giphy.com/media/5IMcyqKbkg0O4/giphy.gif"
