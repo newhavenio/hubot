@@ -32,7 +32,7 @@ function response() {
 
 module.exports = function(robot) {
   robot.hear(/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi, function(msg) {
-    let max = parseInt(process.env.JOBS_SUGGESTION_MAX_PERCENTAGE, 10) || 100
+    let max = parseInt(process.env.JOBS_SUGGESTION_MAX_PERCENTAGE, 10) || 0
     if(msg.message.user.room === process.env.JOBS_BOARD_ROOM) {
       maybe(max, function() {
         msg.send(response());
