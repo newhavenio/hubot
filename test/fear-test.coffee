@@ -32,7 +32,7 @@ describe 'fear', ->
 
   context 'without a bang', ->
     beforeEach ->
-      process.env.FEAR_MAX_PERCENTAGE = "20"
+      process.env.FEAR_MAX_PERCENTAGE = "100"
       @room = helper.createRoom()
 
     afterEach ->
@@ -51,4 +51,19 @@ describe 'fear', ->
         expect(@room.messages[0..1]).to.eql [
           ['alice', 'afraid'],
           ['hubot', litany]
+        ]
+
+  context 'when the feature flag is zero', ->
+    beforeEach ->
+      process.env.FEAR_MAX_PERCENTAGE = "0"
+      @room = helper.createRoom()
+
+    afterEach ->
+      delete process.env.FEAR_MAX_PERCENTAGE
+      @room.destroy()
+
+    it 'does not respond', ->
+      @room.user.say('alice', 'fear').then =>
+        expect(@room.messages[0..1]).to.eql [
+          ['alice', 'fear'],
         ]

@@ -33,10 +33,10 @@ function getRandomIntegerBelow(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function maybe(p, fn) {
-  let max = parseInt(process.env.FEAR_MAX_PERCENTAGE, 10) || 100
-  let randomValue = getRandomIntegerBelow(max)
-  if (randomValue < p) {
+function maybe(fn) {
+  let max = parseInt(process.env.FEAR_MAX_PERCENTAGE, 10) || 0
+  let randomValue = getRandomIntegerBelow(100)
+  if (randomValue < max) {
     fn();
   }
 }
@@ -47,7 +47,7 @@ module.exports = function(robot) {
   });
 
   robot.hear(/\b(fear|afraid)\b/i, function(msg) {
-    maybe(20, function() {
+    maybe(function() {
       msg.send(littany(' '));
     });
   });
